@@ -1,8 +1,10 @@
 package com.company;
+import java.util.ArrayList;
 
 public abstract class Ticket
 {
     private int serialNumber;
+    private static ArrayList<Integer> tickets = new ArrayList<>();
 
     public Ticket()
     {
@@ -18,6 +20,12 @@ public abstract class Ticket
 
     private static int getNextSeriaNumber()
     {
-        return ()
+        int num = (int) (Math.random() * 900) + 100;
+        while (tickets.contains(num))
+        {
+            num = (int) (Math.random() * 900) + 100;
+        }
+        tickets.add(num);
+        return num;
     }
 }
